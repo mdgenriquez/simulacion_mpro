@@ -72,4 +72,11 @@ st.dataframe(PaDEL_df)
 RDKit_PaDEL_df = pd.concat([RDKit_df, PaDEL_df], axis=1)
 RDKit_PaDEL_df_columns = RDKit_PaDEL_df.columns
 
+# Scale data---consultar sobre los otros archivos
+RDKit_PaDEL_scaled_ = robust_scaler.transform(RDKit_PaDEL_df)
+RDKit_PaDEL_scaled = minmax_scaler.transform(RDKit_PaDEL_scaled_)
+RDKit_PaDEL_scaled_df = pd.DataFrame(RDKit_PaDEL_scaled)
+RDKit_PaDEL_scaled_df.columns = RDKit_PaDEL_df_columns
+
+
 
