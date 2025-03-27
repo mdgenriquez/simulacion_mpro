@@ -32,7 +32,7 @@ hgb_best = joblib.load('archivos/hgb_best_model.pickle')
 selector_ExtraTrees = joblib.load('archivos/selector_ExtraTrees.pickle')
 selector_Huber = joblib.load('archivos/selector_Huber.pickle')
 selector_LGBM = joblib.load('archivos/selector_LGBM.pickle')
-svr_best_model = joblib.load('archivos/svr_best_model.pickle')
+svr_best_model = joblib.load('archivos/nusvr_best_model.pickle')
 
 # RDKit selected descriptors function
 def get_selected_RDKitdescriptors(smile, selected_descriptors, missingVal=None):
