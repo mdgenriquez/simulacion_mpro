@@ -68,4 +68,8 @@ PaDEL_df = PaDEL_df_.loc[:,PaDEL_select_descriptors]
 st.write("Descriptores PaDEL")
 st.dataframe(PaDEL_df)
 
+# Concatenate RDKit and PaDEL dataframes
+RDKit_PaDEL_df = pd.concat([RDKit_df, PaDEL_df], axis=1)
+RDKit_PaDEL_df_columns = RDKit_PaDEL_df.columns
+
 
