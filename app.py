@@ -85,9 +85,6 @@ RDKit_PaDEL = RDKit_PaDEL_scaled_df[Selected_features]
 # Cargar el modelo (elige uno disponible en tu repo)
 svr_best_model = joblib.load('archivos/svr_best_model.pickle')  
 
-# Mostrar la predicción en Streamlit
-st.write("Free Energy Binding Prediction")
-st.dataframe(pd.DataFrame(predictions, columns=["Docking Score"]))  
 # Hacer la predicción
 predictions = svr_best_model.predict(RDKit_PaDEL)
 
