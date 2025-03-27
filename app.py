@@ -86,11 +86,13 @@ RDKit_PaDEL = RDKit_PaDEL_scaled_df[Selected_features]
 svr_best_model = joblib.load('archivos/svr_best_model.pickle')  
 
 # Hacer la predicción
-predictions = svr_best_model.predict(RDKit_PaDEL)
+try:
+    predictions = svr_best_model.predict(RDKit_PaDEL)
+    st.write("Free Energy Binding Prediction")
+    st.dataframe(pd.DataFrame(predictions, columns=["Docking Score"]))
+except Exception as e:
+    st.write("Error en la predicción:", e)
 
-# Mostrar la predicción en Streamlit
-st.write("Free Energy Binding Prediction", svr_best_model)
-st.dataframe(pd.DataFrame(predictions, columns=["Docking Score"]))  # Convertir a DataFrame
 
 
 
