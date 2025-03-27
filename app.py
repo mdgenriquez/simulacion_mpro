@@ -78,21 +78,27 @@ RDKit_PaDEL_scaled = minmax_scaler.transform(RDKit_PaDEL_scaled_)
 RDKit_PaDEL_scaled_df = pd.DataFrame(RDKit_PaDEL_scaled)
 RDKit_PaDEL_scaled_df.columns = RDKit_PaDEL_df_columns
 
-# Selected features
+# Scale data
+RDKit_PaDEL_scaled_ = robust_scaler.transform(RDKit_PaDEL_df)
+RDKit_PaDEL_scaled = minmax_scaler.transform(RDKit_PaDEL_scaled_)
+RDKit_PaDEL_scaled_df = pd.DataFrame(RDKit_PaDEL_scaled)
+RDKit_PaDEL_scaled_df.columns = RDKit_PaDEL_df_columns
+
+# Select features
 selected_features_mask = selector_LGBM.support_
 Selected_features = RDKit_PaDEL_df_columns[selected_features_mask]
 RDKit_PaDEL = RDKit_PaDEL_scaled_df[Selected_features]
-# Cargar el modelo (elige uno disponible en tu repo)
-svr_best_model = joblib.load('archivos/svr_best_model.pickle')  
 
-# Hacer la predicción
+# Load the model (choose one from your repository)
+svr_best_model = joblib.load('archivos/svr_best_model.pickle')
+
+# Make prediction
 try:
     predictions = svr_best_model.predict(RDKit_PaDEL)
     st.write("Free Energy Binding Prediction")
     st.dataframe(pd.DataFrame(predictions, columns=["Docking Score"]))
 except Exception as e:
-    st.write("Error en la predicción:", e)
-
+    st.write("Prediction error:", e)
 
 
 
