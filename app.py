@@ -89,7 +89,7 @@ svr_best_model = joblib.load('archivos/svr_best_model.pickle')
 predictions = svr_best_model.predict(RDKit_PaDEL)
 
 # Mostrar la predicción en Streamlit
-st.write("Free Energy Binding Prediction")
+st.write("Free Energy Binding Prediction", svr_best_model)
 st.dataframe(pd.DataFrame(predictions, columns=["Docking Score"]))  # Convertir a DataFrame
 
 
