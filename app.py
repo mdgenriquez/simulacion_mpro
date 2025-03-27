@@ -91,6 +91,10 @@ RDKit_PaDEL = RDKit_PaDEL_scaled_df[Selected_features]
 
 # Load the model (choose one from your repository)
 svr_best_model = joblib.load('archivos/svr_best_model.pickle')
+if svr_best_model:
+    st.write("Model loaded successfully")
+else:
+    st.write("Error loading model")
 
 # Make prediction
 try:
