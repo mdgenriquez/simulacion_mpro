@@ -83,10 +83,16 @@ selected_features_mask = selector_LGBM.support_
 Selected_features = RDKit_PaDEL_df_columns[selected_features_mask]
 RDKit_PaDEL = RDKit_PaDEL_scaled_df[Selected_features]
 
+# Selected features--prueba
+selected_features_mask = select_LGBM.support_
+Selected_features = RDKit_PaDEL_df_columns[selected_features_mask]
+RDKit_PaDEL = RDKit_PaDEL_scaled_df[Selected_features]
+
+
 # Make predictions ERROR
-#predictions = lgbm_model.predict(RDKit_PaDEL)
-#st.write("Predicción de Docking score")
-#st.dataframe(predictions)
+predictions = lgbm_model.predict(RDKit_PaDEL)
+st.write("Predicción de Docking score")
+st.dataframe(predictions)
 
 
 
