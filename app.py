@@ -61,3 +61,11 @@ RDKit_df = pd.DataFrame(RDKit_descriptors)
 st.write("Descriptores RDKit")
 st.dataframe(RDKit_df)
 
+# Calculate PaDEL descriptors
+PaDEL_descriptors = from_smiles(df['smiles'].tolist())
+PaDEL_df_ = pd.DataFrame(PaDEL_descriptors)
+PaDEL_df = PaDEL_df_.loc[:,PaDEL_select_descriptors]
+st.write("Descriptores PaDEL")
+st.dataframe(PaDEL_df)
+
+
