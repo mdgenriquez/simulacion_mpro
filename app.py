@@ -22,7 +22,7 @@ Draw.MolToFile(mm,'mol.png')
 st.image('mol.png')
 
 #archivos
-RDKit_select_descriptors = joblib.load('./archivos/RDKit_select_descriptors.pickle')
+RDKit_select_descriptors = joblib.load('archivos/RDKit_select_descriptors.pickle')
 PaDEL_select_descriptors = joblib.load('./archivos/PaDEL_select_descriptors.pickle')
 robust_scaler = joblib.load('./archivos/robust_scaler.pickle')
 minmax_scaler = joblib.load('./archivos/minmax_scaler.pickle')
