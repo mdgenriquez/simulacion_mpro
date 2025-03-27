@@ -20,3 +20,6 @@ mm = Chem.MolFromSmiles(compound_smiles)
 
 Draw.MolToFile(mm,'mol.png')
 st.image('mol.png')
+
+#archivos
+RDKit_select_descriptors = joblib.load('./archivos/RDKit_select_descriptors.pickle')
