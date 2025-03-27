@@ -85,8 +85,6 @@ RDKit_PaDEL = RDKit_PaDEL_scaled_df[Selected_features]
 
 # Make predictions
 predictions = LGBM_model.predict(RDKit_PaDEL)
-st.write("Predicción de Docking score")
-st.dataframe(predictions)
 
 
 
