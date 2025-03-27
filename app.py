@@ -78,6 +78,11 @@ RDKit_PaDEL_scaled = minmax_scaler.transform(RDKit_PaDEL_scaled_)
 RDKit_PaDEL_scaled_df = pd.DataFrame(RDKit_PaDEL_scaled)
 RDKit_PaDEL_scaled_df.columns = RDKit_PaDEL_df_columns
 
+# Selected features
+selected_features_mask = selector_LGBM.support_
+Selected_features = RDKit_PaDEL_df_columns[selected_features_mask]
+RDKit_PaDEL = RDKit_PaDEL_scaled_df[Selected_features]
+
 
 
 
