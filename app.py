@@ -14,3 +14,6 @@ import pickle
 import joblib
 
 st.title("Test de Mpro para ligando-receptor")
+
+compound_smiles=st.text_input('Ingresa tu código SMILES','C1=CC(=CC=C1C2C(C(=O)C3=C(C=C(C=C3O2)O)O)O)O')
+mm = Chem.MolFromSmiles(compound_smiles)
