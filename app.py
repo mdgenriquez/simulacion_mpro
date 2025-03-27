@@ -78,15 +78,7 @@ RDKit_PaDEL_scaled = minmax_scaler.transform(RDKit_PaDEL_scaled_)
 RDKit_PaDEL_scaled_df = pd.DataFrame(RDKit_PaDEL_scaled)
 RDKit_PaDEL_scaled_df.columns = RDKit_PaDEL_df_columns
 
-# Selected features--prueba
-selected_features_mask = select_hgb.support_
-Selected_features = RDKit_PaDEL_df_columns[selected_features_mask]
-RDKit_PaDEL = RDKit_PaDEL_scaled_df[Selected_features]
 
-# Make predictions ERROR
-predictions = hgb_model.predict(RDKit_PaDEL)
-st.write("Predicción de Docking score")
-st.dataframe(predictions)
 
 
 
