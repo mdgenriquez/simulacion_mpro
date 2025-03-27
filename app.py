@@ -83,10 +83,7 @@ selected_features_mask = selector_LGBM.support_
 Selected_features = RDKit_PaDEL_df_columns[selected_features_mask]
 RDKit_PaDEL = RDKit_PaDEL_scaled_df[Selected_features]
 # Cargar el modelo (elige uno disponible en tu repo)
-svr_best_model = joblib.load('archivos/svr_best_model.pickle')  # O usa otro modelo
-
-# Hacer la predicción
-predictions = svr_best_model.predict(RDKit_PaDEL)
+svr_best_model = joblib.load('archivos/svr_best_model.pickle')  
 
 # Mostrar la predicción en Streamlit
 st.write("Free Energy Binding Prediction")
