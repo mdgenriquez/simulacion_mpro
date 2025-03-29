@@ -89,20 +89,7 @@ selected_features_mask = selector_LGBM.support_
 Selected_features = RDKit_PaDEL_df_columns[selected_features_mask]
 RDKit_PaDEL = RDKit_PaDEL_scaled_df[Selected_features]
 
-# Load the model (choose one from your repository)
-svr_best_model = joblib.load('archivos/svr_best_model.pickle')
-if svr_best_model:
-    st.write("Model loaded successfully")
-else:
-    st.write("Error loading model")
 
-# Make prediction
-try:
-    predictions = svr_best_model.predict(RDKit_PaDEL)
-    st.write("Free Energy Binding Prediction")
-    st.dataframe(pd.DataFrame(predictions, columns=["Docking Score"]))
-except Exception as e:
-    st.write("Prediction error:", e)
 
 
 
